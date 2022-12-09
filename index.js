@@ -16,7 +16,6 @@ let computerScore = 0;
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playerSelection = button.id;
-        console.log(playerSelection);
         if (playerScore < 5 && computerScore < 5) {
             playRound(playerSelection);
         } else {
@@ -30,13 +29,10 @@ buttons.forEach((button) => {
                 winnerDisplay.innerText = "This game is a draw. Try again!";
             }
         }
-
-
     });
 })
 
 const playRound = (playerSelection) => {
-
     let computerSelection = computerPlay();
 
     playerChoiceDisplay.innerText = playerSelection;
