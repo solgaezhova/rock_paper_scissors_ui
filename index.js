@@ -13,21 +13,14 @@ let computerPlay = () => {
 let playerScore = 0;
 let computerScore = 0;
 
+
+
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playerSelection = button.id;
         if (playerScore < 5 && computerScore < 5) {
             playRound(playerSelection);
-        } else {
-            if (playerScore > computerScore) {
-                winnerDisplay.innerText = `You won this game with the score ${playerScore} to ${computerScore}. Congratulations!`;
-            }
-            else if (playerScore < computerScore) {
-                winnerDisplay.innerText = `You lost this game with the score ${playerScore} to ${computerScore}. Don't get upset, try again!`;
-            }
-            else {
-                winnerDisplay.innerText = "This game is a draw. Try again!";
-            }
+            determineWinner();
         }
     });
 })
@@ -51,6 +44,20 @@ const playRound = (playerSelection) => {
         computerScore++;
         computerScoreDisplay.innerText++;
         roundResultDisplay.innerText = `You lose! ${capitalizeFirstLetter(computerSelection)} beats ${capitalizeFirstLetter(playerSelection)}`
+    }
+}
+
+const determineWinner = () => {
+    if (playerScore == 5 || computerScore == 5) {
+        if (playerScore > computerScore) {
+            winnerDisplay.innerText = `You won this game with the score ${playerScore} to ${computerScore}. Congratulations!`;
+        }
+        else if (playerScore < computerScore) {
+            winnerDisplay.innerText = `You lost this game with the score ${playerScore} to ${computerScore}. Don't get upset, try again!`;
+        }
+        else {
+            winnerDisplay.innerText = "This game is a draw. Try again!";
+        }
     }
 }
 
