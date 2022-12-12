@@ -13,8 +13,6 @@ let computerPlay = () => {
 let playerScore = 0;
 let computerScore = 0;
 
-
-
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         playerSelection = button.id;
